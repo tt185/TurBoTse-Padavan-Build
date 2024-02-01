@@ -32,7 +32,7 @@ jobs:
             targets: "PSG1208 PSG1218 NEWIFI-MINI OYE-001"
     steps:
       - name: Checkout main            # 导入主分支
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Prepare environment      # 准备编译环境
         run: |                         # 安装依赖包
           sudo apt update
@@ -73,7 +73,7 @@ jobs:
           ./clear_tree_simple >/dev/null 2>&1; done
       - name: Upload images to Artifact
         if: ${{ success() }}
-        uses: actions/upload-artifact@v2.2.1
+        uses: actions/upload-artifact@v4
         with:
           name: Hanwckf_3.4_${{ env.build_variant }}
           path: ${{ env.images_dir }}
